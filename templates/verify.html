@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verify OTP - Secure Login</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-image: url("/static/background.jpg");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .otp-container {
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+      text-align: center;
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    h2 {
+      color: #ff4dd2;
+      font-size: 1.8rem;
+    }
+
+    form input[type="text"] {
+      width: 220px;
+      padding: 10px;
+      margin: 20px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    form input[type="submit"] {
+      background-color: #00ccff;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    form input[type="submit"]:hover {
+      background-color: #ff4dd2;
+      color: white;
+    }
+
+    a {
+      display: block;
+      margin-top: 15px;
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="otp-container">
+    <h2>🔑 Verify Your OTP</h2>
+    <form method="POST" action="/verify">
+      <input type="text" name="token" placeholder="Enter OTP" required />
+      <br />
+      <input type="submit" value="Verify" />
+    </form>
+    <a href="{{ url_for('home') }}">⬅️ Back to Home</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scan QR Code - Secure Login</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url("/static/background.jpg");
+      background-size: cover;
+      background-position: center;
+      font-family: 'Orbitron', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .qr-container {
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 0, 128, 0.8);
+      text-align: center;
+      animation: fadeIn 1.5s ease;
+    }
+
+    h2 {
+      color: #ff4dd2;
+      font-size: 1.8rem;
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    img {
+      margin-top: 20px;
+      border: 6px solid #00ccff;
+      border-radius: 10px;
+      width: 200px;
+      height: 200px;
+    }
+
+    a {
+      color: #00ccff;
+      text-decoration: none;
+      display: block;
+      margin-top: 20px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="qr-container">
+    <h2>🔐 Scan the QR Code</h2>
+    <p>Scan this QR code using the Google Authenticator app.</p>
+    <img src="{{ url_for('static', filename=username + '_qrcode.png') }}" alt="QR Code"/>
+    <a href="{{ url_for('verify') }}">Go to OTP Verification ➡️</a>
+  </div>
+</body>
+</html>
